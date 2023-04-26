@@ -1,0 +1,40 @@
+<mat-sidenav-container class="sp-actions-menu">
+  <mat-sidenav mode="side"
+    opened="true"
+    class="sp-mat-sidenav"
+    [disableClose]="true">
+    <mat-nav-list>
+      <ng-template ngFor let-item [ngForOf]="availableTabs">
+        <mat-list-item (click)="addTab(item)">
+          <mat-icon class="sp-tabbed-panel-icon" matListIcon>{{item.icon}}</mat-icon>
+          <h3 matLine>{{item.title}}</h3>
+        </mat-list-item>
+
+        <mat-divider></mat-divider>
+      </ng-template>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sp-content">
+    <mat-card class="sp-container">
+      <mat-tab-group *ngIf="openedTabs.length"
+        class="sp-tab-group"
+        [(selectedIndex)]="selectedIndex">
+        <mat-tab *ngFor="let item of openedTabs; let index = index">
+          <ng-template mat-tab-label>
+            <div class="sp-tab-label">
+              <mat-icon color="primary">{{item.icon}}</mat-icon>
+              <span class="sp-tab-label-text">{{item.title}}</span>
+              <mat-icon *ngIf="!item.sticky"
+                class="sp-tab-close sp-small-icon"
+                (click)="closeTab(index)">close</mat-icon>
+            </div>
+          </ng-template>
+
+          <ng-template #tabContent></ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+

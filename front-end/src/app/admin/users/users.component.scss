@@ -1,0 +1,35 @@
+@import '~@angular/material/theming';
+
+:host {
+  display: flex;
+  flex-direction: column;
+
+  mat-spinner {
+    margin: 5em auto;
+  }
+}
+
+.sp-action-panel {
+  padding: 1em;
+  display: flex;
+  justify-content: space-between;
+
+  button:first-child {
+    margin-right: 1em;
+  }
+}
+
+.mat-cell,
+.mat-header-cell {
+  &:not(.mat-column-admin) {
+    flex-grow: 2;
+  }
+}
+
+.mat-column-admin {
+  text-align: center;
+}
+
+.mat-row[selected] {
+  background-color: mat-color($mat-indigo, 50);
+}

@@ -1,0 +1,39 @@
+<form class="sp-form">
+  <h2 class="sp-header">
+    <span>Авторизація</span>
+  </h2>
+
+  <mat-form-field>
+    <input matInput
+      autofocus
+      name="login"
+      type="text"
+      placeholder="Логін"
+      autocomplete="off"
+      [(ngModel)]="login"
+      required
+      #loginInput="ngModel">
+    <mat-icon matSuffix color="primary">person</mat-icon>
+    <mat-error *ngIf="loginInput.invalid">Введіть логін</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput
+      name="password"
+      type="password"
+      autocomplete="off"
+      placeholder="Пароль"
+      [(ngModel)]="password"
+      required
+      #passwordInput="ngModel">
+    <mat-icon matSuffix color="primary">lock</mat-icon>
+    <mat-error *ngIf="passwordInput.invalid">Введіть пароль</mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button
+    color="primary"
+    type="button"
+    [disabled]="loginInput.errors || passwordInput.errors"
+    (click)="loginRequest()">Вхід
+  </button>
+</form>

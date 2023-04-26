@@ -1,0 +1,75 @@
+@import '~@angular/material/theming';
+@import '../../shared/styles/general.variables';
+@import '../../shared/styles/mixins';
+
+:host {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  ::ng-deep .sp-tabbed-item-inserted {
+    display: flex;
+    width: calc(100% - 4px);
+    margin-left: 2px;
+    height: calc(100% - 2px);
+
+    > mat-card {
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.sp-actions-menu {
+  width: 100%;
+
+  .sp-mat-sidenav {
+    @include sidenav-panel();
+  }
+}
+
+.sp-content {
+  .sp-container {
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+  }
+
+  .sp-tab-group {
+    height: 100%;
+
+    ::ng-deep {
+      .mat-tab-body-wrapper {
+        flex: 1 0 0;
+      }
+      .mat-tab-body-content {
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.sp-tab-label {
+  display: flex;
+  align-items: center;
+
+  .sp-tab-label-text {
+    margin: 0 1em;
+  }
+
+  .sp-tab-close {
+    border-radius: 50%;
+
+    &:hover {
+      background-color: mat-color($mat-grey, 300);
+      cursor: default;
+    }
+  }
+}
+
+.sp-tabbed-panel-icon {
+  color: mat-color($mat-grey, 700);
+}
